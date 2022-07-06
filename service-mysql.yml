@@ -1,0 +1,26 @@
+---
+- name: install and start mariadb 10.4
+  hosts: pod-abdillahsyarip-managed1
+  become: true
+
+  tasks:
+    - name: add apt-key
+      apt_key:
+        url: https://mariadb.org/mariadb_release_signing_key.asc
+        state: present
+    - name: add repo mariadb 10.4
+      template: src=mariadb.list.j2 dest=/etc/apt/sources.list.d/mariadb.list
+    - name: install mariadb-server
+      apt:
+        name: mariadb-server
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+    - name: install mariadb-client
+      apt:
+        name: mariadb-client
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+    - name: start mariadb
+      service: name=mariadb state=started enabled=yes
