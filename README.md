@@ -1,5 +1,5 @@
 
-## EDUCATIONAL PURPOSES ONLY
+## THIS CODE IS FOR EDUCATIONAL PURPOSES ONLY
 
 Adinusa Ansible Quiz 1 - Install and start mariadb 10.4
 
